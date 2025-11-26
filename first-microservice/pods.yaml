@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: todo-app-frontend
+  # labels:
+  #   app: todo-app
+  #   key: value
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-app
+  template:
+    metadata:
+      labels:
+        app: todo-app
+    spec:
+      containers:
+        - name: todo-app-frontend
+          image: todo-list-frontend:latest
+          imagePullPolicy: Never
+---
